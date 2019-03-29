@@ -16,8 +16,8 @@ class Bank extends React.Component {
             e(ATM, {
                 depositAmount: 1,
                 withdrawAmount: 1,
-                onWithdraw: (amount) => {},
-                onDeposit: (amount) => {},
+                onWithdraw: console.log,
+                onDeposit: console.log,
             }),
             e(BankManager)
         );
