@@ -10,7 +10,11 @@ class Bank extends React.Component {
 
     render() {
         // this line means that we "const currentBalance = this.state.balance"
-        const {withdrawAmount, depositAmount, balance: currentBalance} = this.state;
+        const {
+            withdrawAmount,
+            depositAmount,
+            balance: currentBalance
+        } = this.state;
         return e('div', null,
             'Bank',
             e('p', null, currentBalance),
@@ -18,13 +22,24 @@ class Bank extends React.Component {
                 depositAmount: depositAmount,
                 withdrawAmount: withdrawAmount,
                 onWithdraw: (amount) => {
-                    this.setState({balance: currentBalance - amount})
+                    this.setState({
+                        balance: currentBalance - amount
+                    })
                 },
-                onDeposit:  (amount) => {
-                    this.setState({balance: currentBalance + amount})
+                onDeposit: (amount) => {
+                    this.setState({
+                        balance: currentBalance + amount
+                    })
                 },
             }),
-            e(BankManager)
+            e(BankManager, {
+                onSetAmounts: ({withdrawAmount, depositAmount}) => {
+                    this.setState({
+                        withdrawAmount: withdrawAmount,
+                        depositAmount: depositAmount
+                    });
+                }
+            })
         );
     }
 }
