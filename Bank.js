@@ -16,8 +16,12 @@ class Bank extends React.Component {
             e(ATM, {
                 depositAmount: 1,
                 withdrawAmount: 1,
-                onWithdraw: console.log,
-                onDeposit: console.log,
+                onWithdraw: (amount) => {
+                    this.setState({balance: balance - amount})
+                },
+                onDeposit:  (amount) => {
+                    this.setState({balance: balance + amount})
+                },
             }),
             e(BankManager)
         );
