@@ -1,5 +1,19 @@
 class ATM extends React.Component {
     render() {
-        return e('div', null, 'ATM');
+        const {
+            withdrawAmount,
+            depositAmount,
+            onWithdraw,
+            onDeposit
+        } = this.props;
+        return e('div', null,
+            'ATM',
+            e('button', {
+                onClick: () => onWithdraw(withdrawAmount),
+            }, 'WITHDRAW'),
+            e('button', {
+                onClick: () => onDeposit(depositAmount),
+            }, 'DEPOSIT')
+        );
     }
 }
