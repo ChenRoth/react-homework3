@@ -1,5 +1,5 @@
 class ATM extends React.Component {
     render() {
-        return e('div');
+        return e('div', null, 'ATM');
     }
 }
