@@ -9,8 +9,10 @@ class Bank extends React.Component {
     }
 
     render() {
+        const {balance} = this.state;
         return e('div', null,
             'Bank',
+            e('p', null, balance),
             e(ATM),
             e(BankManager)
         );
