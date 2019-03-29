@@ -13,7 +13,12 @@ class Bank extends React.Component {
         return e('div', null,
             'Bank',
             e('p', null, balance),
-            e(ATM),
+            e(ATM, {
+                depositAmount: 1,
+                withdrawAmount: 1,
+                onWithdraw: (amount) => {},
+                onDeposit: (amount) => {},
+            }),
             e(BankManager)
         );
     }
